@@ -13,8 +13,15 @@ import {
   AlertTriangle,
 } from "lucide-react";
 
+interface Stats {
+  publisherCount: number;
+  articleCount: number;
+  verificationRate: number;
+  tokenCount: number;
+}
+
 export default function Home() {
-  const { data: stats, isLoading: statsLoading } = useQuery({
+  const { data: stats, isLoading: statsLoading } = useQuery<Stats>({
     queryKey: ["/api/stats"],
   });
   
